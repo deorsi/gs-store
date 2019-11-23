@@ -1,5 +1,5 @@
 import Product from "../../models/Product";
-import connectDb from '../../utils/connectDb';
+import connectDb from "../../utils/connectDb";
 
 connectDb();
 
@@ -31,18 +31,23 @@ async function handleGetRequest(req, res) {
 
 async function handlePostRequest(req, res) {
   const { name, price, description, mediaUrl } = req.body;
-  if (!name || !price || !description || !mediaUrl) {
-    return res
-      .status(422)
-      .send("Por favor, reencha todos os campos do produto");
+  try {
+    if (!name || !price || !description || !mediaUrl) {
+      return res
+        .status(422)
+        .send("Por favor, preencha todos os campos do produto");
+    }
+    const product = await new Product({
+      name,
+      price,
+      description,
+      mediaUrl
+    }).save();
+    res.status(201).json(product);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server error in creating product");
   }
-  const product = await new Product({
-    name,
-    price,
-    description,
-    mediaUrl
-  }).save();
-  res.status(201).json(product);
 }
 
 async function handleDeleteRequest(req, res) {

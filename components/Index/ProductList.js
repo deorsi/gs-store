@@ -5,7 +5,7 @@ function ProductList({ products }) {
     return products.map(product => ({
       header: product.name,
       image: product.mediaUrl,
-      meta: `$${product.price}`,
+      meta: `R$${product.price}`,
       color: "teal",
       fluid: true,
       childKey: product._id,
@@ -15,6 +15,7 @@ function ProductList({ products }) {
   return (
     <Card.Group
       itemsPerRow="4"
+      npm
       centered
       stackable
       items={mapProductsToItems(products)}

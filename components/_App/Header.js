@@ -25,7 +25,7 @@ function Header() {
               src="/static/gslogo.svg"
               style={{ marginRight: "1em" }}
             />
-            Store
+            GreatScott
           </Menu.Item>
         </Link>
 
@@ -69,7 +69,7 @@ function Header() {
             <Link href="/signup">
               <Menu.Item header active={isActive("/signup")}>
                 <Icon name="signup" size="large" />
-                Sign up
+                Registre-se
               </Menu.Item>
             </Link>
           </>
