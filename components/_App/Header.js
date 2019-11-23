@@ -19,7 +19,7 @@ function Header() {
     <Menu stackable id="menu" fluid inverted>
       <Container text>
         <Link href="/">
-          <Menu.Item borderless="true" header active={isActive("/")}>
+          <Menu.Item header active={isActive("/")}>
             <Image
               size="mini"
               src="/static/gslogo.svg"
@@ -32,25 +32,23 @@ function Header() {
         <Link href="/cart">
           <Menu.Item header active={isActive("/cart")}>
             <Icon name="cart" size="large" />
-            Cart
+            Carrinho
           </Menu.Item>
         </Link>
 
-        {user && (
-          <Link href="/create">
-            <Menu.Item header active={isActive("/create")}>
-              <Icon name="add square" size="large" />
-              Create
-            </Menu.Item>
-          </Link>
-        )}
+        <Link href="/create">
+          <Menu.Item header active={isActive("/create")}>
+            <Icon name="add square" size="large" />
+            Cadastrar
+          </Menu.Item>
+        </Link>
 
         {user ? (
           <>
             <Link href="/account">
               <Menu.Item header active={isActive("/account")}>
                 <Icon name="user" size="large" />
-                Account
+                Perfil
               </Menu.Item>
             </Link>
 

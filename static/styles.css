@@ -1,43 +1,52 @@
-@import url('https://fonts.googleapis.com/css?family=Red+Hat+Text:400,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,700&display=swap");
 
 /* Variables */
 
 #colors {
-  --p: #5CAD6F;
-  --s: #7235C0;
-  --tg: #5F6368;
-  --bg: #F6F8F6;
-  --bgl: #FBFCFB;
+  --p: #5cad6f;
+  --s: #7235c0;
+  --tg: #5f6368;
+  --bg: #f6f8f6;
+  --bgl: #fbfcfb;
 }
 
 /* Layout */
 
 :root {
-  --bodyBg: #FBFCFB;
-  --menuBg: #5CAD6F;
-  --progressBar: #7235C0;
-  font-family: 'Red Hat Text', sans-serif;
+  --bodyBg: #fbfcfb;
+  --menuBg: #5cad6f;
+  --progressBar: #7235c0;
+  font-family: "Red Hat Text", sans-serif;
 }
 
 body {
   background: var(--bodyBg);
-
 }
 
 #menu {
   background: var(--menuBg);
-
 }
 
-a, p, h1, h2, h3, h4, h5, div {
-  font-family: 'Red Hat Text', sans-serif;
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Red Hat Text", sans-serif;
 }
 
-
+.ui.header,
+div.ui.header,
+div.ui.text.container,
+button.ui.button,
+h2.ui.block.header {
+  font-family: "Red Hat Text", sans-serif;
+}
 
 /* Overrides default styled accordion styles (too much bottom padding) */
 .ui.styled.accordion .content {
   margin: 0;
   padding: 0.5em 1em 0.75em !important;
 }
-
