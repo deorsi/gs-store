@@ -7,7 +7,7 @@ import isLength from "validator/lib/isLength";
 
 connectDb();
 
-export default async (res, req) => {
+export default async (req, res) => {
   const { name, email, password } = req.body;
   try {
     // 1 validate name, email & password
