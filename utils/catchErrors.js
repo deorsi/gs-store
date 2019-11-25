@@ -20,3 +20,5 @@ function catchErrors(error, displayError) {
   }
   displayError(errorMsg);
 }
+
+export default catchErrors;

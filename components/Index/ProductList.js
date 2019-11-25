@@ -15,7 +15,6 @@ function ProductList({ products }) {
   return (
     <Card.Group
       itemsPerRow="4"
-      npm
       centered
       stackable
       items={mapProductsToItems(products)}

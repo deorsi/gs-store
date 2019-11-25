@@ -36,12 +36,14 @@ function Header() {
           </Menu.Item>
         </Link>
 
-        <Link href="/create">
-          <Menu.Item header active={isActive("/create")}>
-            <Icon name="add square" size="large" />
-            Cadastrar
-          </Menu.Item>
-        </Link>
+        {user && (
+          <Link href="/create">
+            <Menu.Item header active={isActive("/create")}>
+              <Icon name="add square" size="large" />
+              Cadastrar
+            </Menu.Item>
+          </Link>
+        )}
 
         {user ? (
           <>

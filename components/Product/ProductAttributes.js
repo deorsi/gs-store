@@ -33,8 +33,7 @@ function ProductAttributes({ description, _id }) {
         <Modal.Actions>
           <Button onClick={() => setModal(false)} content="Cancelar" />
           <Button
-            Negative
-            color="red"
+            negative
             icon="trash"
             labelPosition="right"
             content="Excluir"

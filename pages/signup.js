@@ -1,7 +1,10 @@
 import React from "react";
 import { Button, Form, Icon, Message, Segment } from "semantic-ui-react";
 import Link from "next/link";
+import axios from "axios";
 import catchErrors from "../utils/catchErrors";
+import baseUrl from "../utils/baseUrl";
+import { handleLogin } from "../utils/auth";
 
 const INITIAL_USER = {
   name: "",
@@ -25,12 +28,16 @@ function Signup() {
     setUser(prevState => ({ ...prevState, [name]: value }));
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     try {
       setLoading(true);
       setError("");
       console.log(user);
+      const url = `${baseUrl}/api/signup`;
+      const payload = { ...user };
+      const response = await axios.post(url, payload);
+      handleLogin(response.data);
       // make request to signup user
     } catch (error) {
       catchErrors(error, setError);
@@ -58,6 +65,7 @@ function Signup() {
             label="Nome"
             placeholder="Seu nome"
             name="name"
+            value={user.name}
             onChange={handleChange}
           />
           <Form.Input
@@ -68,6 +76,7 @@ function Signup() {
             placeholder="Seu email"
             name="email"
             type="email"
+            value={user.email}
             onChange={handleChange}
           />
           <Form.Input
@@ -78,10 +87,11 @@ function Signup() {
             placeholder="Sua senha"
             name="password"
             type="password"
+            value={user.password}
             onChange={handleChange}
           />
           <Button
-            disable={disabled || loading}
+            disabled={disabled || loading}
             icon="signup"
             type="submit"
             color="violet"

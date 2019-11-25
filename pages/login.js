@@ -8,7 +8,7 @@ const INITIAL_USER = {
   password: ""
 };
 
-function Signup() {
+function Login() {
   const [user, setUser] = React.useState(INITIAL_USER);
   const [disabled, setDisabled] = React.useState(true);
   const [loading, setLoading] = React.useState(false);
@@ -24,7 +24,7 @@ function Signup() {
     setUser(prevState => ({ ...prevState, [name]: value }));
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     try {
       setLoading(true);
@@ -58,6 +58,7 @@ function Signup() {
             placeholder="Seu email"
             name="email"
             type="email"
+            value={user.email}
             onChange={handleChange}
           />
           <Form.Input
@@ -68,10 +69,11 @@ function Signup() {
             placeholder="Sua senha"
             name="password"
             type="password"
+            value={user.password}
             onChange={handleChange}
           />
           <Button
-            disable={disabled || loading}
+            disabled={disabled || loading}
             icon="sign in"
             type="submit"
             color="orange"
@@ -91,4 +93,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Login;
