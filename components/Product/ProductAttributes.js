@@ -4,9 +4,12 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import baseUrl from "../../utils/baseUrl";
 
-function ProductAttributes({ description, _id }) {
+function ProductAttributes({ description, _id, user }) {
   const [modal, setModal] = React.useState(false);
   const router = useRouter();
+  const isRoot = user && user.role === "root";
+  const isAdmin = user && user.role === "admin";
+  const isRootOrAdmin = isRoot || isAdmin;
 
   async function handleDelete() {
     const url = `${baseUrl}/api/product`;
@@ -19,28 +22,33 @@ function ProductAttributes({ description, _id }) {
     <>
       <Header as="h3">Sobre o produto</Header>
       <p>{description}</p>
-      <Button
-        icon="trash alternate outline"
-        color="red"
-        content="Excluir Produto"
-        onClick={() => setModal(true)}
-      />
-      <Modal open={modal} dimmer="blurring">
-        <Modal.Header>Confirmar Ação</Modal.Header>
-        <Modal.Content>
-          <p>Você tem certeza que deseja excluir/deletar este produto?</p>
-        </Modal.Content>
-        <Modal.Actions>
-          <Button onClick={() => setModal(false)} content="Cancelar" />
+      {isRootOrAdmin && (
+        <>
           <Button
-            negative
-            icon="trash"
-            labelPosition="right"
-            content="Excluir"
-            onClick={handleDelete}
+            icon="trash alternate outline"
+            color="red"
+            content="Excluir Produto"
+            onClick={() => setModal(true)}
           />
-        </Modal.Actions>
-      </Modal>
+
+          <Modal open={modal} dimmer="blurring">
+            <Modal.Header>Confirmar Ação</Modal.Header>
+            <Modal.Content>
+              <p>Você tem certeza que deseja excluir/deletar este produto?</p>
+            </Modal.Content>
+            <Modal.Actions>
+              <Button onClick={() => setModal(false)} content="Cancelar" />
+              <Button
+                negative
+                icon="trash"
+                labelPosition="right"
+                content="Excluir"
+                onClick={handleDelete}
+              />
+            </Modal.Actions>
+          </Modal>
+        </>
+      )}
     </>
   );
 }

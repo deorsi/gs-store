@@ -4,7 +4,7 @@ import Link from "next/link";
 import axios from "axios";
 import catchErrors from "../utils/catchErrors";
 import baseUrl from "../utils/baseUrl";
-import handleLogin from "../utils/baseUrl";
+import { handleLogin } from "../utils/auth";
 
 const INITIAL_USER = {
   email: "",
@@ -50,7 +50,7 @@ function Login() {
         attached
         icon="privacy"
         header="Bem-vindo!"
-        content="Insira o e-mail e a senha para entrar."
+        content="Insira seu e-mail e senha para entrar."
         color="orange"
       />
       <Form error={Boolean(error)} loading={loading} onSubmit={handleSubmit}>
