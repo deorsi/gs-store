@@ -4,6 +4,7 @@ import connectDb from "../../utils/connectDb";
 connectDb();
 
 // GET -> handleGetRequest
+// POST -> handlePostRequest
 // DELETE -> handleDeleteRequest
 
 export default async (req, res) => {
@@ -18,7 +19,7 @@ export default async (req, res) => {
       await handleDeleteRequest(req, res);
       break;
     default:
-      res.status(405).send(`Method ${req.method} not allowed`);
+      res.status(405).send(`Método ${req.method} não permitido`);
       break;
   }
 };
@@ -46,7 +47,7 @@ async function handlePostRequest(req, res) {
     res.status(201).json(product);
   } catch (error) {
     console.error(error);
-    res.status(500).send("Server error in creating product");
+    res.status(500).send("Erro no servidor ao criar produto");
   }
 }
 

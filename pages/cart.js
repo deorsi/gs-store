@@ -13,7 +13,7 @@ function Cart({ products }) {
       <CartSummary />
     </Segment>
   );
-}
+} 
 
 Cart.getInitialProps = async ctx => {
   const { token } = parseCookies(ctx);
