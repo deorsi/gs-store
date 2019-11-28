@@ -17,6 +17,7 @@ export default async (req, res) => {
       break;
     default:
       res.status(405).send(`Método ${req.method} não permitido`);
+      break;
   }
 };
 
