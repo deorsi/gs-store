@@ -82,7 +82,7 @@ async function handlePutRequest(req, res) {
 }
 
 async function handleDeleteRequest(req, res) {
-  const { productId } = req.body;
+  const { productId } = req.query;
   if (!("authorization" in req.headers)) {
     return res.status(401).send("Sem token de autenticação.");
   }

@@ -7,7 +7,7 @@ import axios from "axios";
 import baseUrl from "../utils/baseUrl";
 import cookie from "js-cookie";
 
-function Cart({ user, products }) {
+function Cart({ products, user }) {
   const [cartProducts, setCartProducts] = React.useState(products);
 
   async function handleRemoveFromCart(productId) {
