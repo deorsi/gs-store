@@ -2,7 +2,7 @@ import App from "next/app";
 import Layout from "../components/_App/Layout";
 import { parseCookies, destroyCookie } from "nookies";
 import axios from "axios";
-import { Router } from "next/router";
+import Router from "next/router";
 import { redirectUser } from "../utils/auth";
 import baseUrl from "../utils/baseUrl";
 
