@@ -41,7 +41,7 @@ function Cart({ products, user }) {
   }
 
   return (
-    <Segment loading={setLoading}>
+    <Segment loading={loading}>
       <CartItemList
         handleRemoveFromCart={handleRemoveFromCart}
         user={user}
