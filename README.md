@@ -1,6 +1,6 @@
-## GS-Store [in progress]
+## GS-Store
 
-An e-commerce app built with the javascript based MERN Stack. 
+An e-commerce app built with the javascript based MERN Stack.
 
 ## Frontend
 React.js + Next.js + Semantic UI

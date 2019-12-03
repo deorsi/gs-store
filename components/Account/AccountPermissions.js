@@ -3,6 +3,7 @@ import axios from "axios";
 import cookie from "js-cookie";
 import { Header, Checkbox, Table, Icon } from "semantic-ui-react";
 import baseUrl from "../../utils/baseUrl";
+import formatDate from "../../utils/formatDate";
 
 function AccountPermissions() {
   const [users, setUsers] = React.useState([]);
@@ -54,7 +55,7 @@ function UserPermission({ user }) {
       isFirstRun.current = false;
       return;
     }
-    updatePermission()
+    updatePermission();
   }, [admin]);
 
   function handleChangePermission() {
@@ -62,8 +63,8 @@ function UserPermission({ user }) {
   }
 
   async function updatePermission() {
-    const url = `${baseUrl}/api/account`
-    const payload = { _id: user._id, role: admin ? "admin" : "user" }
+    const url = `${baseUrl}/api/account`;
+    const payload = { _id: user._id, role: admin ? "admin" : "user" };
     await axios.put(url, payload);
   }
 
@@ -74,8 +75,8 @@ function UserPermission({ user }) {
       </Table.Cell>
       <Table.Cell>{user.name}</Table.Cell>
       <Table.Cell>{user.email}</Table.Cell>
-      <Table.Cell>{user.createdAt}</Table.Cell>
-      <Table.Cell>{user.updatedAt}</Table.Cell>
+      <Table.Cell>{formatDate(user.createdAt)}</Table.Cell>
+      <Table.Cell>{formatDate(user.updatedAt)}</Table.Cell>
       <Table.Cell>{admin ? "admin" : "user"}</Table.Cell>
     </Table.Row>
   );
