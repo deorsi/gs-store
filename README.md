@@ -3,7 +3,7 @@
 An e-commerce app built with the javascript based MERN Stack.
 
 ## Frontend
-React.js + Next.js + Semantic UI
+Next.js (React framework) + Semantic UI
 
 ## Backend
 Node.js + Express.js
